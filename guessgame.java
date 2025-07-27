@@ -1,31 +1,39 @@
 import java.util.*;
-public class guessgame {
-    public static void main(String[] args){
-        int num=75;
-        int attempts=0;
-        int guessed;
-        Scanner scan=new Scanner(System.in);
-        System.out.println("Guess the number");
-        do{
-        
-        guessed=scan.nextInt();
-        attempts++;
-          if(guessed>num){
-            System.out.println("Too high");
-            
-          }
-          else if(guessed<num){
-            System.out.println("Too low");
-          }
-          else{
-            System.out.println("Congratulations you have find the number in "+attempts+"attempts");
-          }
-          
-        }
-        while(guessed != num);
-            
-            scan.close();
 
-        
+public class todotask {
+    public static void main(String[] args) {
+        List<String> tasks = new ArrayList<>();
+        Scanner scan1 = new Scanner(System.in);
+
+        boolean running = true;
+        while (running) {
+            System.out.println("TO DO LIST");
+            System.out.println("If you want to add a task press :1");
+            System.out.println("If you want to Remove a task press :2");
+            System.out.println("If you want to quit press :3");
+            System.out.println("Enter your choice");
+            String input = scan1.nextLine();
+            int choice=0;
+            try {
+               choice = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("Enter a valid integer input");
+            }
+            if (choice == 1) {
+                System.out.println("Enter the task");
+                String toadd = scan1.nextLine();
+                tasks.add(toadd);
+            }
+            if (choice == 2) {
+                System.out.println("Enter the task");
+                String todelete = scan1.nextLine();
+                tasks.remove(todelete);
+            }
+            if (choice == 3) {
+                running = false;
+            }
+            System.out.println("Operation finished successfully");
+            System.out.println(tasks);
+        }
     }
 }
